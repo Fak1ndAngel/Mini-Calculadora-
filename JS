@@ -1,0 +1,26 @@
+let display = document.getElementById('display');
+let currentInput = '0';
+
+function appendToDisplay(value) {
+    if (currentInput === '0') {
+        currentInput = '';
+    }
+    currentInput += value;
+    display.innerHTML = currentInput;
+}
+
+function clearDisplay() {
+    currentInput = '0';
+    display.innerHTML = currentInput;
+}
+
+function calculate() {
+    try {
+        let result = eval(currentInput);
+        display.innerHTML = result;
+        currentInput = result.toString();
+    } catch (error) {
+        display.innerHTML = 'Error';
+        currentInput = '0';
+    }
+}
